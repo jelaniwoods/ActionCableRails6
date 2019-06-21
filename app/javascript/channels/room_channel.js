@@ -17,3 +17,19 @@ consumer.subscriptions.create("RoomChannel", {
     console.log(data.content)
   }
 });
+
+let submit_messages;
+
+$(document).on('turbolinks:load', function () {
+  submit_messages()
+})
+
+submit_messages = function () {
+  $('#message_content').on('keydown', function (event) {
+    if (event.keyCode == 13) {
+      $('input').click()
+      event.target.value = ''
+      event.preventDefault()
+    }
+  })
+}
