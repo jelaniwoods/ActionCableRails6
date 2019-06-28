@@ -1,11 +1,11 @@
 <div class="row justify-content-center mb-3" >
-  <div class="col-md-8" id="resource_messages">
+  <div class="col-md-8" id="resource_messages" data-channel-subscribe="resource" data-resource-id="<%= @resource.id %>">
     <%#= render object: @resource, partial: "card", as: :resource %>
     <%= render collection: @resource.recieved_messages, partial: "message_list_item", as: :message %>
   </div>
 </div>
 
-<div class="chat" data-channel-subscribe="resource" data-room-id="<%= @resource.id %>">
+<div class="chat" data-channel-subscribe="resource" data-resource-id="<%= @resource.id %>">
 
   <div class="d-none" data-role="message-template">
     <div class="chat-message-container">
