@@ -1,0 +1,29 @@
+<tr>
+  <td>
+    <%= resource.title %>
+  </td>
+
+  <td>
+    <%= resource.id_from_tc %>
+  </td>
+
+  <td>
+    <%= resource.context_id %>
+  </td>
+
+  <td>
+    <div class="btn-group">
+      <%= link_to resource, class: "btn btn-sm btn-outline-secondary" do %>
+        <i class="fas fa-search-plus fa-fw"></i>
+      <% end %>
+
+      <%= link_to edit_resource_url(resource), class: "btn btn-sm btn-outline-secondary" do %>
+        <i class="fas fa-edit fa-fw"></i>
+      <% end %>
+
+      <%= link_to resource, method: :delete, data: { confirm: "Do you really want to delete this resource?" }, class: "btn btn-sm btn-outline-secondary" do %>
+        <i class="fas fa-trash-alt fa-fw"></i>
+      <% end %>
+    </div>
+  </td>
+</tr>

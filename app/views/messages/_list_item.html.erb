@@ -1,0 +1,13 @@
+<%= link_to message, class: "list-group-item list-group-item-action d-flex align-items-center justify-content-between" do %>
+  <div>
+    Message #<%= message.id %>
+
+    <small class="text-muted">
+      <%= time_ago_in_words(message.updated_at) %> ago
+    </small>
+  </div>
+
+  <span class="btn btn-sm btn-outline-secondary">
+    <i class="fas fa-chevron-right fa-fw"></i>
+  </span>
+<% end %>

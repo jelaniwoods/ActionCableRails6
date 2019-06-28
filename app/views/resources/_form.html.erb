@@ -1,0 +1,79 @@
+<% was_validated = resource.errors.any? %>
+
+<% form_html_options = { novalidate: true, class: "mb-3" } %>
+
+<%= form_for(resource, html: form_html_options) do |f| %>
+  <div class="form-group">
+    <% title_class = "form-control" %>
+    <% title_was_invalid = resource.errors.include?(:title) %>
+
+    <% if was_validated %>
+      <% if title_was_invalid %>
+        <% title_class << " is-invalid" %>
+      <% else %>
+        <% title_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :title %>
+
+    <%= f.text_field :title, class: title_class, placeholder: "Enter title" %>
+    <% if title_was_invalid %>
+      <% resource.errors.full_messages_for(:title).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+
+  <div class="form-group">
+    <% id_from_tc_class = "form-control" %>
+    <% id_from_tc_was_invalid = resource.errors.include?(:id_from_tc) %>
+
+    <% if was_validated %>
+      <% if id_from_tc_was_invalid %>
+        <% id_from_tc_class << " is-invalid" %>
+      <% else %>
+        <% id_from_tc_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :id_from_tc %>
+
+    <%= f.text_field :id_from_tc, class: id_from_tc_class, placeholder: "Enter id from tc" %>
+    <% if id_from_tc_was_invalid %>
+      <% resource.errors.full_messages_for(:id_from_tc).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+
+  <div class="form-group">
+    <% context_id_class = "form-control" %>
+    <% context_id_was_invalid = resource.errors.include?(:context_id) %>
+
+    <% if was_validated %>
+      <% if context_id_was_invalid %>
+        <% context_id_class << " is-invalid" %>
+      <% else %>
+        <% context_id_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :context_id %>
+
+    <%= f.number_field :context_id, class: context_id_class, placeholder: "Enter context" %>
+    <% if context_id_was_invalid %>
+      <% resource.errors.full_messages_for(:context_id).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+
+  <%= f.button class: "btn btn-outline-secondary btn-block" %>
+<% end %>

@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+  resources :contexts
+  resources :messages
+  resources :resources
+  resources :enrollments
+  devise_for :users
   root "landing#index"
 
   resources :messages, only: [:new, :create]
