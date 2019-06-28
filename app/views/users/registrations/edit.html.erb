@@ -145,6 +145,34 @@
             </small>
           </div>
 
+          
+          <!-- Devise Input for username start -->
+          <div class="form-group">
+            <% username_was_invalid = resource.errors.include?(:username) %>
+
+            <% username_class = "form-control" %>
+
+            <% if was_validated %>
+              <% if username_was_invalid %>
+                <% username_class << " is-invalid" %>
+              <% else %>
+                <% username_class << " is-valid" %>
+              <% end %>
+            <% end %>
+
+            <%= f.label :username %>
+
+            <%= f.text_field :username, :class => username_class, :placeholder => "Enter username" %>
+
+            <% if username_was_invalid %>
+              <% resource.errors.full_messages_for(:username).each do |message| %>
+                <div class="invalid-feedback d-flex">
+                  <%= message %>
+                </div>
+              <% end %>
+            <% end %>
+          </div>
+          <!-- Devise Input for username end -->
           <%= f.submit "Update", class: "btn btn-block btn-outline-primary" %>
         <% end %>
 
