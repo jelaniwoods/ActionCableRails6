@@ -1,5 +1,15 @@
 <div class="row justify-content-center mb-3">
   <div class="col-md-8">
-    <%= render object: @resource, partial: "card", as: :resource %>
+    <%#= render object: @resource, partial: "card", as: :resource %>
+    <%= render collection: @resource.recieved_messages, partial: "message_list_item", as: :message %>
   </div>
 </div>
+
+<hr>
+
+<%= form_for @message, remote: true do |f| %>
+  <%= f.text_field :body %>
+  <%= f.hidden_field :resource_id, value: @resource.id %>
+  <%= f.hidden_field :enrollment_id, value: current_user.enrollments.first.id %>
+  <%= f.submit %>
+<% end %>

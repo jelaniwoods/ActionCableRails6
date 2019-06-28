@@ -8,6 +8,7 @@ class ResourcesController < ApplicationController
 
   # GET /resources/1
   def show
+    @message = Message.new
   end
 
   # GET /resources/new
