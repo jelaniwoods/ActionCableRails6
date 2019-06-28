@@ -24,9 +24,10 @@ class MessagesController < ApplicationController
     @message = Message.new(message_params)
 
     if @message.save
-      redirect_to @message, notice: 'Message was successfully created.'
+      ActionCable.server.broadcast "room_channel",
+                                        content: @message.content 
     else
-      render :new
+      
     end
   end
 
