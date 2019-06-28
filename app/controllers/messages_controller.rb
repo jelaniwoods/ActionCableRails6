@@ -22,11 +22,16 @@ class MessagesController < ApplicationController
   # POST /messages
   def create
     @message = Message.new(message_params)
-
+    resource = @message.resource
     if @message.save
-      ActionCable.server.broadcast "room_channel",
-                                        content: @message.body,
-                                        user: @message.enrollment.user.email 
+      # So this works as expected
+      ResourceChannel.broadcast_to resource,
+                     content: @message.body,
+                     user: @message.enrollment.user.email 
+
+      # ActionCable.server.broadcast resource,
+      #                                   content: @message.body,
+      #                                   user: @message.enrollment.user.email 
     else
       
     end

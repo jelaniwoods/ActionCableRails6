@@ -14,6 +14,6 @@ class ContextChannel < ApplicationCable::Channel
     # puts "_____" * 7
     # p 
     # p params
-    Context.find_by(id: 1)
+    Context.find_by(id: params[:context_id])
   end
 end
