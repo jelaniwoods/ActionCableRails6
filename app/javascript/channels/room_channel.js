@@ -26,7 +26,7 @@ $(document).on('turbolinks:load', function () {
 })
 
 submit_messages = function () {
-  $('#message_content').on('keydown', function (event) {
+  $('#message_body').on('keydown', function (event) {
     if (event.keyCode == 13) {
       $('input').click()
       event.target.value = ''
