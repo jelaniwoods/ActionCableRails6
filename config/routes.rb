@@ -4,7 +4,8 @@ Rails.application.routes.draw do
   resources :resources
   resources :enrollments
   devise_for :users
-  root "landing#index"
+  # root "landing#index"
+  root "enrollments#new"
 
   resources :messages, only: [:new, :create]
   get 'landing/index'

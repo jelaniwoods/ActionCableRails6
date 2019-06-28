@@ -25,7 +25,8 @@ class MessagesController < ApplicationController
 
     if @message.save
       ActionCable.server.broadcast "room_channel",
-                                        content: @message.content 
+                                        content: @message.body,
+                                        user: @message.enrollment.user.email 
     else
       
     end

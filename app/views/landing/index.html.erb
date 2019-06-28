@@ -7,6 +7,8 @@
 </div>
 
 <%= form_for @message, remote: true do |f| %>
-  <%= f.text_field :content %>
+  <%= f.text_field :body %>
+  <%= f.number_field :resource_id %>
+  <%= f.hidden_field :enrollment_id, value: current_user.enrollments.first.id %>
   <%= f.submit %>
 <% end %>

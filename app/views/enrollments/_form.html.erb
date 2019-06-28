@@ -17,7 +17,7 @@
 
     <%= f.label :user_id %>
 
-    <%= f.number_field :user_id, class: user_id_class, placeholder: "Enter user" %>
+    <%= f.hidden_field :user_id, class: user_id_class, value: current_user.id %>
     <% if user_id_was_invalid %>
       <% enrollment.errors.full_messages_for(:user_id).each do |message| %>
         <div class="invalid-feedback d-flex">
