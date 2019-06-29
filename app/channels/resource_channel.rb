@@ -1,7 +1,7 @@
 class ResourceChannel < ApplicationCable::Channel
   def subscribed
     # stream_from "some_channel"
-    stream_for resource
+    stream_for Resource.first
   end
 
   def unsubscribed
