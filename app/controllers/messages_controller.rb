@@ -26,7 +26,7 @@ class MessagesController < ApplicationController
     if @message.save
       # So this works as expected
       ResourceChannel.broadcast_to resource,
-                     content: @message.body,
+                     body: @message.body,
                      user: @message.enrollment.user.email 
 
       # ActionCable.server.broadcast resource,

@@ -1,6 +1,6 @@
 class ContextChannel < ApplicationCable::Channel
   def subscribed
-    stream_for context
+    # stream_for context
   end
 
   def unsubscribed

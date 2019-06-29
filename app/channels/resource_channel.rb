@@ -6,12 +6,15 @@ class ResourceChannel < ApplicationCable::Channel
 
   def unsubscribed
     # Any cleanup needed when channel is unsubscribed
+    stop_all_streams
   end
 
   private
 
   # any activerecord instance has 'to_gid_param'
   def resource
+    puts "\n" *8
+    p params[:resource]
     Resource.find_by(id: params[:resource])
   end
 end

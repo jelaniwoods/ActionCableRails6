@@ -1,3 +1,5 @@
+<%= content_for(:head_attributes) do %>data-resource-id="<%= @resource.id %>"<% end %>
+
 <div class="row justify-content-center mb-3" >
   <div class="col-md-8" id="resource_messages" data-channel-subscribe="resource" data-resource-id="<%= @resource.id %>">
     <%#= render object: @resource, partial: "card", as: :resource %>
