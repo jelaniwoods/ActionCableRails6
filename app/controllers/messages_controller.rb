@@ -27,7 +27,11 @@ class MessagesController < ApplicationController
       # So this works as expected
       ResourceChannel.broadcast_to resource,
                      body: @message.body,
-                     user: @message.enrollment.user.email
+                     user: @message.enrollment.user.email 
+
+      # ActionCable.server.broadcast resource,
+      #                                   content: @message.body,
+      #                                   user: @message.enrollment.user.email 
     else
       
     end
