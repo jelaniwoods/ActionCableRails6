@@ -54,7 +54,7 @@ $(document).on('turbolinks:load', function () {
         // let message = '<a class="list-group-item list-group-item-action d-flex align-items-center justify-content-between" href="/messages/15"> <div> <strong>alice</strong>' +
         //  '<small class="text-muted">' + data. '</small> next i restarted the server for any changes </div> <span class="btn btn-sm btn-outline-secondary"> <i class="fas fa-chevron-right fa-fw"></i> </span> </a> </div>'
         console.log("Recieving:")
-        console.log(data.content)
+        console.log(data.body)
       }
     });
 
